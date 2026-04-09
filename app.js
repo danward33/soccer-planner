@@ -128,17 +128,21 @@ function getPlayerArrows(arrows,player){
   return arrows.filter(a=>Math.abs(a.x1-player.x)<PROX&&Math.abs(a.y1-player.y)<PROX);
 }
 
+function isMobile(){return window.innerWidth<768;}
+
 function redraw(){
   const wrap=document.getElementById('canvasArea');
   const panelCollapsed=document.getElementById('infoPanel').classList.contains('collapsed');
-  const panelW=panelCollapsed?0:285;
-  const maxW=wrap.clientWidth-8-panelW,maxH=wrap.clientHeight-8;
+  const mobile=isMobile();
+  const panelW=(!mobile&&!panelCollapsed)?285:0;
+  const panelH=(mobile&&!panelCollapsed)?Math.round(wrap.clientHeight*.48):0;
+  const maxW=wrap.clientWidth-8-panelW,maxH=wrap.clientHeight-8-panelH;
   const aspect=68/105;
   let W=maxW,H=maxW/aspect;
   if(H>maxH){H=maxH;W=H*aspect;}
   canvas.width=Math.floor(W);canvas.height=Math.floor(H);
   canvas.style.transition='none';
-  canvas.style.marginLeft=panelCollapsed?'':'-285px';
+  canvas.style.marginLeft=(!mobile&&!panelCollapsed)?'-285px':'';
   canvas.getBoundingClientRect();
   canvas.style.transition='';
   ctx.clearRect(0,0,W,H);
@@ -222,7 +226,7 @@ function togglePanel(){
   const infoPanel=document.getElementById('infoPanel');
   infoPanel.classList.toggle('collapsed');
   const isOpen=!infoPanel.classList.contains('collapsed');
-  canvas.style.marginLeft=isOpen?'-285px':'';
+  if(!isMobile()) canvas.style.marginLeft=isOpen?'-285px':'';
   setTimeout(redraw,260);
 }
 

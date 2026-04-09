@@ -54,3 +54,46 @@ header h1{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3p
 .legend-row:last-child{margin-bottom:0;}
 .ld{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
 .la{width:16px;height:2px;flex-shrink:0;}
+
+/* ── RESPONSIVE ── */
+@media (max-width:767px){
+  /* Header */
+  .header-top{height:38px;padding:0 10px;}
+  header h1{font-size:1.15rem;letter-spacing:2px;}
+  .sub{display:none;}
+  .header-nav{flex-wrap:wrap;gap:6px;padding:6px 10px;}
+  .header-divider{display:none;}
+  .side-toggle{order:0;}
+  .side-btn{font-size:.8rem;padding:5px 14px;}
+  .sel-wrap{flex:1;min-width:0;}
+  .nav-select{width:100%;font-size:.62rem;padding:6px 22px 6px 8px;}
+
+  /* Canvas — full width, leave room for bottom tab */
+  canvas{margin-left:0 !important;transition:none !important;}
+
+  /* Info panel — bottom sheet */
+  .info-panel{
+    right:0;left:0;top:auto;bottom:0;
+    width:100%;height:48vh;
+    border-left:none;border-top:2px solid var(--accent);
+    transition:transform .25s ease;
+  }
+  .info-panel.collapsed{transform:translateY(100%);}
+  .panel-content{overflow-y:auto;}
+
+  /* Pull tab — bottom center */
+  .panel-tab{
+    right:auto;left:50%;top:auto;bottom:0;
+    transform:translateX(-50%);
+    width:80px;height:26px;
+    border-radius:10px 10px 0 0;
+    font-size:.9rem;
+  }
+}
+
+@media (max-width:400px){
+  header h1{font-size:1rem;}
+  .side-btn{padding:5px 10px;font-size:.75rem;}
+  .nav-select{font-size:.6rem;}
+  .info-panel{height:52vh;}
+}
