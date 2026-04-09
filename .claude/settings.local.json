@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m http.server 3000)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where python3:*)",
+      "Bash(where py:*)",
+      "Bash(where node:*)",
+      "Bash(where npx:*)",
+      "WebSearch"
+    ]
+  }
+}

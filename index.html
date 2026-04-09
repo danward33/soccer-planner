@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set Piece Playbook — Falmouth SC</title>
+<link rel="icon" type="image/png" href="FSC Logo512x512.png">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="header-top">
+    <div class="header-title">
+      <img src="FSC Logo512x512.png" alt="FSC" style="height:34px;width:auto;display:block;">
+      <div>
+        <h1>Set Piece Playbook</h1>
+        <div class="sub">FALMOUTH SOCCER CLUB · 8TH GRADE GIRLS · 4-4-2</div>
+      </div>
+    </div>
+  </div>
+  <div class="header-nav">
+    <div class="side-toggle">
+      <button class="side-btn active" id="btnOff" onclick="setSide('offense')">OFFENSE</button>
+      <button class="side-btn" id="btnDef" onclick="setSide('defense')">DEFENSE</button>
+    </div>
+    <div class="header-divider"></div>
+    <div class="sel-wrap">
+      <select id="sitSelect" class="nav-select" onchange="updatePlay()">
+        <option>Goal Kick</option>
+        <option>Corner Kick</option>
+        <option>Direct Free Kick</option>
+        <option>Throw-in</option>
+      </select>
+    </div>
+    <div class="sel-wrap">
+      <select id="lvlSelect" class="nav-select" onchange="updatePlay()">
+        <option value="strong">Option A — Safe</option>
+        <option value="equal">Option B — Balanced</option>
+        <option value="weaker">Option C — Attack</option>
+      </select>
+    </div>
+    <div class="header-divider"></div>
+    <div class="sel-wrap">
+      <select id="posSelect" class="nav-select" onchange="updatePosition()">
+        <option value="team">— Team View —</option>
+        <option value="GK">Goalkeeper</option>
+        <option value="LB">Left Back</option>
+        <option value="LCB">Left Center Back</option>
+        <option value="RCB">Right Center Back</option>
+        <option value="RB">Right Back</option>
+        <option value="LM">Left Midfielder</option>
+        <option value="LCM">Left Center Mid</option>
+        <option value="RCM">Right Center Mid</option>
+        <option value="RM">Right Midfielder</option>
+        <option value="LF">Left Forward</option>
+        <option value="RF">Right Forward</option>
+      </select>
+    </div>
+  </div>
+</header>
+<div class="main">
+  <div class="canvas-area" id="canvasArea"><canvas id="field"></canvas></div>
+  <div class="info-panel" id="infoPanel">
+    <button class="panel-minimize" onclick="togglePanel()">&#8249; HIDE PANEL</button>
+    <div class="panel-content">
+      <div id="panelContent"></div>
+    </div>
+  </div>
+  <div class="panel-tab" id="panelTab" onclick="togglePanel()">&#8250;</div>
+</div>
+<script src="plays-constants.js"></script>
+<script src="plays/offense-goal-kick-safe.js"></script>
+<script src="plays/offense-goal-kick-balanced.js"></script>
+<script src="plays/offense-goal-kick-attack.js"></script>
+<script src="plays/offense-corner-kick-safe.js"></script>
+<script src="plays/offense-corner-kick-balanced.js"></script>
+<script src="plays/offense-corner-kick-attack.js"></script>
+<script src="plays/offense-free-kick-safe.js"></script>
+<script src="plays/offense-free-kick-balanced.js"></script>
+<script src="plays/offense-free-kick-attack.js"></script>
+<script src="plays/offense-throw-in-safe.js"></script>
+<script src="plays/offense-throw-in-balanced.js"></script>
+<script src="plays/offense-throw-in-attack.js"></script>
+<script src="plays/defense-goal-kick-safe.js"></script>
+<script src="plays/defense-goal-kick-balanced.js"></script>
+<script src="plays/defense-goal-kick-attack.js"></script>
+<script src="plays/defense-corner-kick-safe.js"></script>
+<script src="plays/defense-corner-kick-balanced.js"></script>
+<script src="plays/defense-corner-kick-attack.js"></script>
+<script src="plays/defense-free-kick-safe.js"></script>
+<script src="plays/defense-free-kick-balanced.js"></script>
+<script src="plays/defense-free-kick-attack.js"></script>
+<script src="plays/defense-throw-in-safe.js"></script>
+<script src="plays/defense-throw-in-balanced.js"></script>
+<script src="plays/defense-throw-in-attack.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
